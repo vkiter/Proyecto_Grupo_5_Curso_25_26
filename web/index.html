@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<!-- VISTA - MusiKeasy -->
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MusiKeasy</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <img src="logo.jpg" alt="MusiKeasy" class="logo">
+    <div>
+      <button onclick="Controlador.verVista('home')">Descubrir</button>
+      <button onclick="Controlador.verVista('detalle')">Cancion</button>
+      <button onclick="Controlador.verVista('artista')">Mi panel</button>
+    </div>
+    <div>
+      <button class="btn-borde">Entrar</button>
+      <button class="btn-solido">Registrarse</button>
+    </div>
+  </nav>
+
+  <!-- VISTA HOME -->
+  <div id="vista-home" class="vista activa">
+
+    <div class="hero">
+      <div>
+        <h1>Escucha la <span class="acento">diferencia</span></h1>
+        <p>Descubre musicos independientes y apoyalos directamente.</p>
+        <button class="btn-solido">Explorar musica</button>
+        <button class="btn-borde">Soy artista</button>
+      </div>
+      <img src="logo.jpg" alt="" class="logo-hero">
+    </div>
+
+    <input type="text" class="buscador" placeholder="Busca artistas, canciones o generos...">
+
+    <div class="generos">
+      <button class="chip activo">Todos</button>
+      <button class="chip">Indie</button>
+      <button class="chip">Pop</button>
+      <button class="chip">Hip-hop</button>
+      <button class="chip">Folk</button>
+      <button class="chip">Jazz</button>
+      <button class="chip">Rock</button>
+    </div>
+
+    <p class="subtitulo">Canciones destacadas</p>
+
+    <!-- Cancion 1 -->
+    <div class="cancion-fila activa" onclick="Controlador.verDetalle(0)">
+      <span class="num">▶</span>
+      <div class="cover" style="background:lavender;">🎸</div>
+      <div class="info">
+        <div class="titulo">Luces de Neon</div>
+        <div class="gris">Alba Vega</div>
+      </div>
+      <div class="gris">★★★★★ &nbsp; 3:24</div>
+    </div>
+
+    <!-- Cancion 2 -->
+    <div class="cancion-fila" onclick="Controlador.verDetalle(1)">
+      <span class="num">2</span>
+      <div class="cover" style="background:honeydew;">🌿</div>
+      <div class="info">
+        <div class="titulo">Raices</div>
+        <div class="gris">Marco Sierra</div>
+      </div>
+      <div class="gris">★★★★☆ &nbsp; 4:01</div>
+    </div>
+
+    <!-- Cancion 3 -->
+    <div class="cancion-fila" onclick="Controlador.verDetalle(2)">
+      <span class="num">3</span>
+      <div class="cover" style="background:mistyrose;">🔥</div>
+      <div class="info">
+        <div class="titulo">Ciudad Rota</div>
+        <div class="gris">Duo Calíope</div>
+      </div>
+      <div class="gris">★★★★☆ &nbsp; 2:58</div>
+    </div>
+
+    <!-- Cancion 4 -->
+    <div class="cancion-fila" onclick="Controlador.verDetalle(3)">
+      <span class="num">4</span>
+      <div class="cover" style="background:aliceblue;">🌊</div>
+      <div class="info">
+        <div class="titulo">Mar Adentro</div>
+        <div class="gris">Luna Castillo</div>
+      </div>
+      <div class="gris">★★★★★ &nbsp; 5:12</div>
+    </div>
+
+    <!-- Cancion 5 -->
+    <div class="cancion-fila" onclick="Controlador.verDetalle(4)">
+      <span class="num">5</span>
+      <div class="cover" style="background:lightyellow;">🎹</div>
+      <div class="info">
+        <div class="titulo">Tacto</div>
+        <div class="gris">Nico Prada</div>
+      </div>
+      <div class="gris">★★★★☆ &nbsp; 3:45</div>
+    </div>
+
+  </div>
+
+  <!-- VISTA DETALLE -->
+  <div id="vista-detalle" class="vista">
+
+    <div class="detalle-cabecera">
+      <div class="cover grande" id="detalle-cover">🎸</div>
+      <div>
+        <p class="acento" id="detalle-genero">Indie Rock</p>
+        <h2 id="detalle-titulo">Luces de Neon</h2>
+        <p class="gris" id="detalle-artista">por Alba Vega</p>
+        <div class="badges">
+          <span class="badge">Descargable</span>
+          <span class="badge">Partitura</span>
+          <span class="badge" id="detalle-puntos">★ 4.8 / 5</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reproductor -->
+    <div class="reproductor">
+      <div class="barra" onclick="Controlador.moverBarra(event, this)">
+        <div class="barra-relleno" id="barra-relleno"></div>
+      </div>
+      <div class="tiempos">
+        <span id="tiempo-actual">1:10</span>
+        <span>3:24</span>
+      </div>
+      <div class="controles">
+        <button class="btn-ctrl">|&lt;</button>
+        <button class="btn-ctrl">&lt;&lt;</button>
+        <button class="btn-play" id="btn-play" onclick="Controlador.togglePlay()">||</button>
+        <button class="btn-ctrl">&gt;&gt;</button>
+        <button class="btn-ctrl">&gt;|</button>
+      </div>
+    </div>
+
+    <!-- Acciones -->
+    <div class="acciones">
+      <button class="btn-borde" onclick="Controlador.toggleDonacion()">Donar al artista</button>
+      <button class="btn-borde">Descargar</button>
+      <button class="btn-borde">Ver partitura</button>
+    </div>
+
+    <!-- Panel donacion -->
+    <div id="panel-donacion" class="panel oculto">
+      <p>Elige cuanto quieres donar a <strong id="nombre-donacion">Alba Vega</strong>:</p>
+      <div class="fila-chips">
+        <button class="chip" onclick="Controlador.selDonacion(this, 1)">1 EUR</button>
+        <button class="chip" onclick="Controlador.selDonacion(this, 3)">3 EUR</button>
+        <button class="chip" onclick="Controlador.selDonacion(this, 5)">5 EUR</button>
+        <button class="chip" onclick="Controlador.selDonacion(this, 10)">10 EUR</button>
+      </div>
+      <button class="btn-solido" id="btn-confirmar" onclick="Controlador.confirmarDonacion()">Confirmar donacion</button>
+    </div>
+
+    <!-- Comentarios -->
+    <p class="subtitulo" style="margin-top:24px;">Comentarios</p>
+
+    <div class="comentario">
+      <div class="avatar">MR</div>
+      <div>
+        <div class="titulo">Maria R. &nbsp;<span style="color:orange;">★★★★★</span></div>
+        <div class="gris">Increible, muy profesional para ser independiente.</div>
+      </div>
+    </div>
+
+    <div class="comentario">
+      <div class="avatar">JL</div>
+      <div>
+        <div class="titulo">Javi L. &nbsp;<span style="color:orange;">★★★★☆</span></div>
+        <div class="gris">Me recuerda al indie de los noventa. Muy buena.</div>
+      </div>
+    </div>
+
+    <div id="nuevos-comentarios"></div>
+
+    <div class="fila-input">
+      <input type="text" id="input-comentario" placeholder="Escribe un comentario...">
+      <button class="btn-solido" onclick="Controlador.enviarComentario()">Enviar</button>
+    </div>
+
+  </div>
+
+  <!-- VISTA PANEL ARTISTA -->
+  <div id="vista-artista" class="vista">
+
+    <div class="artista-cabecera">
+      <div class="avatar grande">AV</div>
+      <div>
+        <h2>Alba Vega</h2>
+        <span class="acento">Artista verificado</span>
+      </div>
+    </div>
+
+    <!-- Estadisticas -->
+    <div class="stats">
+      <div class="stat-card">
+        <div class="stat-num">1.284</div>
+        <div class="gris">Reproducciones</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">47</div>
+        <div class="gris">Donaciones</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">4.8</div>
+        <div class="gris">Valoracion</div>
+      </div>
+    </div>
+
+    <!-- Mis canciones -->
+    <div class="panel-cabecera">
+      <p class="subtitulo">Mis canciones</p>
+      <button class="btn-solido">+ Subir cancion</button>
+    </div>
+
+    <div class="cancion-fila">
+      <div class="cover" style="background:lavender;">🎸</div>
+      <div class="info">
+        <div class="titulo">Luces de Neon</div>
+        <div class="gris">843 reproducciones · ★4.8 · 12 comentarios</div>
+      </div>
+      <button class="btn-borde">✏ Editar</button>
+    </div>
+
+    <div class="cancion-fila">
+      <div class="cover" style="background:honeydew;">🌙</div>
+      <div class="info">
+        <div class="titulo">Medianoche</div>
+        <div class="gris">291 reproducciones · ★4.6 · 5 comentarios</div>
+      </div>
+      <button class="btn-borde">✏ Editar</button>
+    </div>
+
+    <div class="cancion-fila">
+      <div class="cover" style="background:thistle;">🎵</div>
+      <div class="info">
+        <div class="titulo">Silencio</div>
+        <div class="gris">150 reproducciones · ★4.9 · 8 comentarios</div>
+      </div>
+      <button class="btn-borde">✏ Editar</button>
+    </div>
+
+    <!-- Donaciones recibidas -->
+    <p class="subtitulo" style="margin-top:24px;">Donaciones recibidas</p>
+
+    <div class="donacion-fila">
+      <div>
+        <div class="titulo">Sara O.</div>
+        <div class="gris">Hace 2 horas · Luces de Neon</div>
+      </div>
+      <div class="importe">5 EUR</div>
+    </div>
+
+    <div class="donacion-fila">
+      <div>
+        <div class="titulo">Javi L.</div>
+        <div class="gris">Ayer · Medianoche</div>
+      </div>
+      <div class="importe">3 EUR</div>
+    </div>
+
+    <div class="donacion-fila">
+      <div>
+        <div class="titulo">Usuario anonimo</div>
+        <div class="gris">Hace 3 dias · Silencio</div>
+      </div>
+      <div class="importe">10 EUR</div>
+    </div>
+
+  </div>
+
+  <!-- PLAYER FIJO -->
+  <div class="player-bar">
+    <div class="player-info">
+      <span id="player-icono">🎸</span>
+      <div>
+        <div id="player-titulo">Luces de Neon</div>
+        <div class="gris" id="player-artista">Alba Vega</div>
+      </div>
+    </div>
+    <div>
+      <button class="btn-ctrl">|&lt;</button>
+      <button class="btn-play-bar" onclick="Controlador.togglePlay()">||</button>
+      <button class="btn-ctrl">&gt;|</button>
+    </div>
+    <div class="barra mini">
+      <div class="barra-relleno" id="barra-bar"></div>
+    </div>
+  </div>
+
+  <script src="modelo.js"></script>
+  <script src="controlador.js"></script>
+</body>
+</html>

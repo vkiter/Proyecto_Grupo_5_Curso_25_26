@@ -1,0 +1,420 @@
+/* Estilos MusiKeasy - minimalista, tema oscuro */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #0d0d0d;
+  color: white;
+  font-size: 15px;
+  padding-bottom: 70px;
+}
+
+/* NAV */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 24px;
+  border-bottom: 1px solid #2a2a2a;
+  position: sticky;
+  top: 0;
+  background: #0d0d0d;
+}
+
+nav button {
+  background: none;
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  color: gray;
+  border-radius: 20px;
+}
+
+nav button:hover {
+  background: #1e1e1e;
+  color: white;
+}
+
+.logo { height: 46px; }
+
+/* BOTONES */
+.btn-solido {
+  background: cornflowerblue;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.btn-solido:hover { opacity: 0.85; }
+
+.btn-borde {
+  background: transparent;
+  color: white;
+  border: 1px solid gray;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.btn-borde:hover { border-color: white; }
+
+/* VISTAS */
+.vista {
+  display: none;
+  padding: 24px;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.vista.activa { display: block; }
+
+.oculto { display: none !important; }
+
+/* HERO */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.hero h1 { font-size: 2em; margin-bottom: 8px; }
+.hero p  { color: gray; margin-bottom: 14px; }
+.hero button { margin-right: 8px; }
+.logo-hero { width: 130px; }
+.acento { color: cornflowerblue; }
+
+/* BUSCADOR */
+.buscador {
+  width: 100%;
+  padding: 10px 16px;
+  border: 1px solid #2a2a2a;
+  border-radius: 24px;
+  font-size: 14px;
+  outline: none;
+  margin-bottom: 16px;
+  display: block;
+  background: #1a1a1a;
+  color: white;
+}
+
+/* GENEROS */
+.generos {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.chip {
+  padding: 5px 14px;
+  border-radius: 20px;
+  border: 1px solid #2a2a2a;
+  background: #1a1a1a;
+  cursor: pointer;
+  font-size: 13px;
+  color: gray;
+}
+
+.chip.activo {
+  background: cornflowerblue;
+  color: white;
+  border-color: cornflowerblue;
+}
+
+/* SUBTITULO */
+.subtitulo {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: gray;
+  margin-bottom: 12px;
+}
+
+/* FILAS CANCION */
+.cancion-fila {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 8px;
+  border-bottom: 1px solid #1e1e1e;
+  cursor: pointer;
+}
+
+.cancion-fila:hover { background: #1a1a1a; }
+.cancion-fila.activa { border-left: 3px solid cornflowerblue; }
+
+.num { width: 20px; color: gray; font-size: 12px; text-align: center; }
+
+.cover {
+  width: 42px;
+  height: 42px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.cover.grande {
+  width: 100px;
+  height: 100px;
+  font-size: 44px;
+  border-radius: 10px;
+}
+
+.info { flex: 1; }
+.titulo { font-size: 14px; font-weight: bold; }
+.gris { font-size: 12px; color: gray; margin-top: 2px; }
+
+/* DETALLE */
+.detalle-cabecera {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.detalle-cabecera h2 { font-size: 1.6em; margin: 4px 0; }
+
+.badges { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+
+.badge {
+  padding: 3px 10px;
+  border-radius: 20px;
+  border: 1px solid #2a2a2a;
+  font-size: 11px;
+  color: gray;
+}
+
+/* REPRODUCTOR */
+.reproductor {
+  background: #1a1a1a;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.barra {
+  width: 100%;
+  height: 5px;
+  background: #333;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-bottom: 6px;
+}
+
+.barra-relleno {
+  height: 100%;
+  background: cornflowerblue;
+  border-radius: 3px;
+  width: 34%;
+  transition: width 0.1s;
+}
+
+.tiempos {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: gray;
+  margin-bottom: 12px;
+}
+
+.controles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-ctrl {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: gray;
+}
+
+.btn-ctrl:hover { color: white; }
+
+.btn-play {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: cornflowerblue;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* ACCIONES */
+.acciones {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+/* PANEL DONACION */
+.panel {
+  border: 1px solid #2a2a2a;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 16px;
+  background: #1a1a1a;
+}
+
+.panel p { margin-bottom: 10px; font-size: 14px; }
+
+.fila-chips { display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+
+/* COMENTARIOS */
+.comentario {
+  display: flex;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #1e1e1e;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: cornflowerblue;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.avatar.grande {
+  width: 58px;
+  height: 58px;
+  font-size: 20px;
+}
+
+.fila-input {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.fila-input input {
+  flex: 1;
+  padding: 8px 14px;
+  border: 1px solid #2a2a2a;
+  border-radius: 20px;
+  font-size: 13px;
+  outline: none;
+  background: #1a1a1a;
+  color: white;
+}
+
+/* PANEL ARTISTA */
+.artista-cabecera {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #2a2a2a;
+  margin-bottom: 20px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.stat-card {
+  border: 1px solid #2a2a2a;
+  border-radius: 10px;
+  padding: 14px;
+  text-align: center;
+  background: #1a1a1a;
+}
+
+.stat-num {
+  font-size: 26px;
+  font-weight: bold;
+  color: cornflowerblue;
+}
+
+.panel-cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.donacion-fila {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #1e1e1e;
+}
+
+.importe {
+  font-size: 18px;
+  font-weight: bold;
+  color: cornflowerblue;
+}
+
+/* PLAYER BAR */
+.player-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #111;
+  border-top: 1px solid #2a2a2a;
+  padding: 10px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.player-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  font-size: 20px;
+}
+
+.player-info div { font-size: 14px; }
+
+.btn-play-bar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: cornflowerblue;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.barra.mini {
+  width: 100px;
+  height: 3px;
+  cursor: default;
+}
